@@ -1,14 +1,24 @@
 var canvas = null, ctx = null;
 var x = 50;
 var y = 50;
+var dir = 0;
+var pause = true;
 var lastPress = null;
 var KEY_ENTER = 13,
 	KEY_LEFT = 65,
 	KEY_UP = 87,
 	KEY_RIGHT = 68,
 	KEY_DOWN = 83;
-var dir = 0;
-var pause = true;
+
+window.requestAnimationFrame = (function () { 
+	return window.requestAnimationFrame || 
+	window.mozRequestAnimationFrame || 
+	window.webkitRequestAnimationFrame || 
+	function (callback) { 
+		window.setTimeout(callback, 17); 
+	}; 
+}());
+
 
 document.addEventListener('keydown', function (evt) {
 	lastPress = evt.which;
